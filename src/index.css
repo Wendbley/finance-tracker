@@ -33,3 +33,8 @@ ul {
 	background: #1f9751;
 	color: #fff;
 }
+.loading {
+	display: block !important;
+	text-align: center;
+	font-size: 18px;
+}

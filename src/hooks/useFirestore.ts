@@ -49,9 +49,6 @@ export const useFirestore = (_collection: string) => {
 	const [response, dispatch] = useReducer(firestoreReducer, initialState)
 	const [isCancelled, setIsCancelled] = useState(false)
 
-	// collection ref
-	//const ref = collection(database, _collection)
-
 	// only dispatch is not cancelled
 	const dispatchIfNotCancelled = (action: Action) => {
 		if (!isCancelled) {
@@ -68,7 +65,6 @@ export const useFirestore = (_collection: string) => {
 		dispatch({ type: 'IS_PENDING' })
 
 		try {
-			// const createdAt = Timestamp.fromDate(new Date())
 			const addedDocument = await addDoc(collection(database, _collection), {
 				...doc,
 				createdAt: serverTimestamp()
